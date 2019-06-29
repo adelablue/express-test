@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+    <title>Tokens</title>
+</head>
+<body>
+    <% include ../partials/header %>
+    <main>
+        <h2>Tokens</h2>
+    
+        <% tokens.forEach(token => { %>
+            <div class="row">
+                <div class="col-sm-4">
+                    <%= token.id %>
+                </div>
+                <div class="col-sm-4">
+                    <%= token.name %>
+                </div>
+                <div class="col-sm-4">
+                    <%= token.ticker %>
+                </div>
+            </div>
+
+        <% });%>
+
+
+    </main>
+    <% include ../partials/footer %>
+</body>
+</html>
