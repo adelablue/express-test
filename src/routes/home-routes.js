@@ -2,15 +2,15 @@ module.exports = (app) => {
 
     //app.get('/', (req, res) => res.send('<b>GREAT</b>'));
     app.get('/', (req, res) => {
-        res.render('index', {message: 'hello ejs'});
+        res.render('home/index', {message: 'hello ejs'});
     });
 
     app.get('/thanks', (req, res) => {
-        res.render('index', {message: 'Thanks for sending us a message'});
+        res.render('home/index', {message: 'Thanks for sending us a message'});
     });
 
     app.get('/contact', (req, res) => {
-        res.render('contact', {
+        res.render('home/contact', {
             email: '',
             message: '',
             errors: []
@@ -32,7 +32,7 @@ module.exports = (app) => {
         }
 
         if (errors.length > 0) {
-            res.render('contact', {
+            res.render('home/contact', {
                 email,
                 message,
                 errors
