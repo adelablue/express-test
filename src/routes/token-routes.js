@@ -1,4 +1,9 @@
+let express = require('express');
 let tokens = require('../data/token-repository');
+let logger = require('../logger');
+let router= express.Router();
+
+router.use(logger);
 
 let sendDetails = (id, res) => {
 
@@ -12,20 +17,22 @@ let sendDetails = (id, res) => {
 
 };
 
+router.get('/tokens', (req, res) => {
+    let id = req.query.id;
+
+    if (id) {
+        sendDetails(id, res);
+    } else {
+        res.render('tokens/index', {tokens: tokens.all()});
+    }
+
+});
+
+router.get('/tokens/:id', (req, res) => {
+    sendDetails(req.params.id, res);
+})
+
 
 module.exports = (app) => {
-    app.get('/tokens', (req, res) => {
-        let id = req.query.id;
-
-        if (id) {
-            sendDetails(id, res);
-        } else {
-            res.render('tokens/index', {tokens: tokens.all()});
-        }
-
-    });
-
-    app.get('/tokens/:id', (req, res) => {
-        sendDetails(req.params.id, res);
-    })
+    app.use(router);
 }
