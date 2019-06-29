@@ -10,5 +10,8 @@ app.use(express.static('./public'));
 app.get('/', (req, res) => {
     res.render('index', {message: 'hello ejs'});
 });
+app.get('/about', (req, res) => {
+    res.render('about');
+});
 
 app.listen(port, ()=> {console.log(`listening at the ${port}`)});
