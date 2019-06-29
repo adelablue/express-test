@@ -10,7 +10,7 @@
         <h2>Tokens</h2>
     
         <% tokens.forEach(token => { %>
-            <div class="row">
+            <a class="row" href="/tokens?id=<%= token.id %>">
                 <div class="col-sm-4">
                     <%= token.id %>
                 </div>
@@ -20,7 +20,7 @@
                 <div class="col-sm-4">
                     <%= token.ticker %>
                 </div>
-            </div>
+            </a>
 
         <% });%>
 
