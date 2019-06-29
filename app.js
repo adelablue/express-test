@@ -1,5 +1,5 @@
-let app = require('./views/src/init');
-let routes = require('./views/src/routes/routes');
+let app = require('./src/init');
+let routes = require('./src/routes/routes');
 
 routes(app.express);
 
